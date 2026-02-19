@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: arvinds-bot
+    env: docker
+    dockerfilePath: ./backend/Dockerfile
+    plan: starter
+    autoDeploy: true
+    healthCheckPath: /api/health
+    disk:
+      name: arvinds-bot-data
+      mountPath: /data
+      sizeGB: 10
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: MODEL_NAME
+        value: claude-haiku-4-5-20251001
+      - key: DATA_DIR
+        value: /data
+      - key: UPLOADS_DIR
+        value: /data/uploads
+      - key: CHROMA_DIR
+        value: /data/chroma
+      - key: CONTEXT_WINDOW_TURNS
+        value: "8"
+      - key: TOP_K
+        value: "6"
+      - key: SIMILARITY_THRESHOLD
+        value: "1.15"

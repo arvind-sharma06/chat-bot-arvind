@@ -1,0 +1,163 @@
+:root {
+  --bg: #f3f2ed;
+  --panel: #fffdf6;
+  --ink: #13221b;
+  --muted: #55655d;
+  --accent: #0f6d4f;
+  --accent-strong: #0a533b;
+  --line: #d9d3c7;
+  --user: #e4f4e2;
+  --bot: #f5f0e4;
+  --radius: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at top right, #e7efe7 0%, var(--bg) 55%);
+}
+
+.shell {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.topbar {
+  margin-bottom: 14px;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.topbar p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 16px;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px;
+  box-shadow: 0 10px 30px rgba(20, 40, 31, 0.06);
+}
+
+.messages {
+  height: 68vh;
+  overflow-y: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.message {
+  max-width: 86%;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  margin-left: auto;
+  background: var(--user);
+}
+
+.message.bot {
+  margin-right: auto;
+  background: var(--bot);
+}
+
+.composer {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+textarea,
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  padding: 10px;
+  font: inherit;
+  background: #fff;
+}
+
+#userInput {
+  min-height: 74px;
+}
+
+button {
+  border: none;
+  border-radius: 10px;
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:hover {
+  background: var(--accent-strong);
+}
+
+.settings-panel h2 {
+  margin: 12px 0 8px;
+  font-size: 1rem;
+}
+
+label {
+  display: block;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+small {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.inline {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.status {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  min-height: 20px;
+}
+
+@media (max-width: 960px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .messages {
+    height: 50vh;
+  }
+}
